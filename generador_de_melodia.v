@@ -1,0 +1,129 @@
+module generador_de_melodia(
+    input wire clk_nota,
+    output reg [9:0] frecuencia
+);
+
+    localparam DO = 10'd261;
+    localparam DO_MOD = 10'd262;
+    localparam RE = 10'd293;
+    localparam MI = 10'd329;
+    localparam FA = 10'd349;
+    localparam FA_MOD = 10'd350;
+    localparam FA_SOSTENIDO = 369;
+    localparam SOL = 10'd392;
+    localparam LA = 10'd440;
+    localparam SI = 10'd493;
+    localparam LA_SOSTENIDO = 10'd466;
+    localparam LA_SOSTENIDO_MOD = 10'd467;
+    localparam DO_MAS  = 10'd523;
+
+    reg [6:0] nota_siguiente = 0;
+
+    // Melodía: Feliz Cumpleaños
+    always @(posedge clk_nota) begin
+        case (nota_siguiente)
+            0: frecuencia = DO;
+            1: frecuencia = DO;
+            2: frecuencia = DO;
+            3: frecuencia = DO_MOD;
+            4: frecuencia = RE;
+            5: frecuencia = RE;
+            6: frecuencia = RE;
+            7: frecuencia = RE;
+            8: frecuencia = DO;
+            9: frecuencia = DO;
+            10: frecuencia = DO;
+            11: frecuencia = DO;
+            12: frecuencia = FA;
+            13: frecuencia = FA;
+            14: frecuencia = FA;
+            15: frecuencia = FA;
+            16: frecuencia = MI;
+            17: frecuencia = MI;
+            18: frecuencia = MI;
+            19: frecuencia = MI;
+            20: frecuencia = MI;
+            21: frecuencia = MI;
+            22: frecuencia = MI;
+            23: frecuencia = MI;
+            24: frecuencia = DO;
+            25: frecuencia = DO;
+            26: frecuencia = DO;
+            27: frecuencia = DO_MOD;
+            28: frecuencia = RE;
+            29: frecuencia = RE;
+            30: frecuencia = RE;
+            31: frecuencia = RE;
+            32: frecuencia = DO;
+            33: frecuencia = DO;
+            34: frecuencia = DO;
+            35: frecuencia = DO;
+            36: frecuencia = SOL;
+            37: frecuencia = SOL;
+            38: frecuencia = SOL;
+            39: frecuencia = SOL;
+            40: frecuencia = FA;
+            41: frecuencia = FA;
+            42: frecuencia = FA;
+            43: frecuencia = FA;
+            44: frecuencia = FA;
+            45: frecuencia = FA;
+            46: frecuencia = FA;
+            47: frecuencia = FA;
+            48: frecuencia = DO;
+            49: frecuencia = DO;
+            50: frecuencia = DO;
+            51: frecuencia = DO_MOD;
+            52: frecuencia = DO_MAS;
+            53: frecuencia = DO_MAS;
+            54: frecuencia = DO_MAS;
+            55: frecuencia = DO_MAS;
+            56: frecuencia = LA;
+            57: frecuencia = LA;
+            58: frecuencia = LA;
+            59: frecuencia = LA;
+            60: frecuencia = FA;
+            61: frecuencia = FA;
+            62: frecuencia = FA;
+            63: frecuencia = FA_MOD;
+            64: frecuencia = MI;
+            65: frecuencia = MI;
+            66: frecuencia = MI;
+            67: frecuencia = MI;
+            68: frecuencia = RE;
+            69: frecuencia = RE;
+            70: frecuencia = RE;
+            71: frecuencia = RE;
+            72: frecuencia = RE;
+            73: frecuencia = RE;
+            74: frecuencia = RE;
+            75: frecuencia = RE;
+            76: frecuencia = LA_SOSTENIDO;
+            77: frecuencia = LA_SOSTENIDO;
+            78: frecuencia = LA_SOSTENIDO;
+            79: frecuencia = LA_SOSTENIDO_MOD;
+            80: frecuencia = LA;
+            81: frecuencia = LA;
+            82: frecuencia = LA;
+            83: frecuencia = LA;
+            84: frecuencia = FA;
+            85: frecuencia = FA;
+            86: frecuencia = FA;
+            87: frecuencia = FA;
+            88: frecuencia = SOL;
+            89: frecuencia = SOL;
+            90: frecuencia = SOL;
+            91: frecuencia = SOL;
+            92: frecuencia = FA;
+            93: frecuencia = FA;
+            94: frecuencia = FA;
+            95: frecuencia = FA;
+            96: frecuencia = FA;
+            97: frecuencia = FA;
+            98: frecuencia = FA;
+            99: frecuencia = FA;
+            default: frecuencia = 0;
+        endcase
+        nota_siguiente <= (nota_siguiente == 99) ? 0 : nota_siguiente + 1;
+    end
+endmodule
